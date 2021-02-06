@@ -1,0 +1,100 @@
+:root{
+    --top:rgb(39, 98, 153);
+    --header:rgb(127, 183, 200);
+    --left:rgb(235, 177, 83);
+    --middle:rgb(202, 179, 221);
+    --right:rgb(219, 130, 103);
+    --sign:rgb(170, 216, 253);
+    --content:rgb(190, 190, 190);
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--top);
+    font-family: 'Amatic SC', cursive;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "header header header"
+      "left middle right"
+      "sign sign sign"
+      "content content content";
+}
+/* .top{
+    grid-area: top;
+    background-color: var(--top);
+} */
+.header{
+    grid-area: header;
+    margin-top: 2%;
+    background-color: var(--header);
+}
+.left{
+    grid-area: left;
+    background-color: var(--left);
+} 
+.middle{
+    grid-area: middle;
+    background-color: var(--middle);
+} 
+.right{
+    grid-area: right;
+    background-color: var(--right);
+}
+.sign{
+    grid-area: sign;
+    background-color: var(--sign);
+}
+.content{
+    grid-area: content;
+    padding-bottom: 50px;
+    background-color: var(--content);
+}
+h1,h2,h3,h4{
+    font-size: 4rem;
+    text-align: center;
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+        grid-template-areas:
+          "header header"
+          "content content"
+          "sign left"
+          "middle right";  
+    }
+    h1,h2,h3,h4{
+        text-align: center;
+    }
+    .header{
+        margin-top: 5%;
+    }
+    .right, 
+    .middle{
+        text-align: center;
+        padding-bottom: 40%;
+    }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+        grid-template-areas:
+          "header"
+          "left" 
+          "middle" 
+          "right"
+          "sign"
+          "content";
+    }
+    h1,h2,h3,h4{
+        text-align: center;
+    }
+    .header{
+        margin-top: 10%;
+    }
+}
